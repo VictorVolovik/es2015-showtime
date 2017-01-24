@@ -1,22 +1,19 @@
 {
-  "name": "reveal.js",
-  "version": "3.4.0",
-  "description": "The HTML Presentation Framework",
-  "homepage": "http://lab.hakim.se/reveal-js",
-  "subdomain": "revealjs",
-  "main": "js/reveal.js",
+  "name": "es2015-showtime",
+  "version": "0.0.1",
+  "description": "Small presentation about es2015 and beyond features",
+  "main": "index.html",
   "scripts": {
     "test": "grunt test",
     "start": "grunt serve"
   },
   "author": {
-    "name": "Hakim El Hattab",
-    "email": "hakim.elhattab@gmail.com",
-    "web": "http://hakim.se"
+    "name": "Victor Volovik",
+    "email": "victor.volovik@inbox.ru"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hakimel/reveal.js.git"
+    "url": "git://github.com/VictorVolovik/es2016-showtime.git"
   },
   "engines": {
     "node": ">=4.0.0"
