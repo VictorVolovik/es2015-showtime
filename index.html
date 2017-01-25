@@ -142,11 +142,11 @@ var a = 2;
 console.log(a); // 2
 					</code></pre>
 					<a
-						href="http://codepen.io/victorvolovik/pen/zNzeQa/"
+						href="http://jsbin.com/gubigib/edit?js,console"
 						target="_blank"
 						rel="noopener"
 						style="font-size: 0.6em;">
-						CodePen
+						JS Bin
 					</a>
 				</section>
 
@@ -166,11 +166,11 @@ console.log(a); // 2
 }
 					</code></pre>
 					<a
-						href="http://codepen.io/victorvolovik/pen/OWgqmb/"
+						href="http://jsbin.com/rezohox/3/edit?js,console"
 						target="_blank"
 						rel="noopener"
 						style="font-size: 0.6em;">
-						CodePen
+						JS Bin
 					</a>
 				</section>
 
@@ -197,6 +197,13 @@ console.log(a); // 2
 for (let i=0;i<10;i++) {/* ... */};
 console.log(i); // → RefferenceError: i is not defined
 					</code></pre>
+					<a
+						href="http://jsbin.com/xofaze/2/edit?js,console"
+						target="_blank"
+						rel="noopener"
+						style="font-size: 0.6em;">
+						JS Bin
+					</a>
 				</section>
 
 				<section>
@@ -215,11 +222,11 @@ console.log(i); // → RefferenceError: i is not defined
   let addition = (a, b) => a + b;
 						</code></pre>
 						<a
-							href="http://codepen.io/victorvolovik/pen/XpgQBd/"
+							href="http://jsbin.com/bomidip/3/edit?js,console"
 							target="_blank"
 							rel="noopener"
 							style="font-size: 0.6em;">
-							CodePen
+							JS Bin
 						</a>
 					</section>
 					<section>
@@ -236,11 +243,11 @@ let breakfast = arr.map(fruit => {
 console.log(breakfast); // ['apples', 'bananas', 'oranges']
 						</code></pre>
 						<a
-							href="http://codepen.io/victorvolovik/pen/oBwOPe/"
+							href="http://jsbin.com/fepomiw/1/edit?js,console"
 							target="_blank"
 							rel="noopener"
 							style="font-size: 0.6em;">
-							CodePen
+							JS Bin
 						</a>
 					</section>
 					<section>
@@ -248,6 +255,8 @@ console.log(breakfast); // ['apples', 'bananas', 'oranges']
 							Стрелочные функции не просто делают код короче. Они тесно связаны с ключевым словом this и привязкой контекста.
 							Поведение стрелочных функций с ключевым словом this отличается от поведения обычных функций с this. Каждая функция в JavaScript определяет свой собственный контекст this, но внутри стрелочных функций значение this то же самое, что и снаружи (стрелочные функции не имеют своего this).
 						</p>
+					</section>
+					<section>
 						<pre><code class="hljs" data-trim contenteditable>
 function Person() {
   // The Person() constructor defines `this`
@@ -263,8 +272,15 @@ function Person() {
   }, 1000);
 }
 var p = new Person();
-						</code></pre>
-					</section>
+							</code></pre>
+							<a
+								href="http://jsbin.com/jimecad/6/edit?js,console"
+								target="_blank"
+								rel="noopener"
+								style="font-size: 0.6em;">
+								JS Bin
+							</a>
+						</section>
 					<section>
 						<p style="font-size: 0.6em;">В ECMAScript 3/5 это поведение стало возможным изменить, присвоив значение this другой переменной.</p>
 						<pre><code class="hljs" data-trim contenteditable>
@@ -279,6 +295,13 @@ function Person() {
   }, 1000);
 }
 						</code></pre>
+						<a
+							href="http://jsbin.com/rezuqud/6/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 					<section>
 						<p style="font-size: 0.6em;">Как сказано выше, внутри стрелочных функций значение this то же самое, что и снаружи, поэтому следующий код работает так, как от него и ожидается:</p>
@@ -296,6 +319,13 @@ function Person() {
 
 var p = new Person();
 						</code></pre>
+						<a
+							href="http://jsbin.com/lamora/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 
 				</section>
@@ -309,6 +339,13 @@ var p = new Person();
 let getFinPrice= (price, tax = 0.7) => price + price * tax;
 getFinPrice(500); // 850
 					</code></pre>
+					<a
+						href="http://jsbin.com/fivazeh/3/edit?js,console"
+						target="_blank"
+						rel="noopener"
+						style="font-size: 0.6em;">
+						JS Bin
+					</a>
 				</section>
 
 				<section>
@@ -325,6 +362,13 @@ function foo(x, y, z) {
 let arr = [1, 2, 3];
 foo(...arr); // 1 2 3
 						</code></pre>
+						<a
+							href="http://jsbin.com/sugeno/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 					<section>
 						<p style="font-size: 0.6em;">
@@ -336,6 +380,13 @@ function foo(...args) {
 }
 foo(1, 2, 3, 4, 5); // [1, 2, 3, 4, 5]
 						</code></pre>
+						<a
+							href="http://jsbin.com/kaxika/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -363,6 +414,13 @@ function getCar(make, model, value) {
   };
 }
 						</code></pre>
+						<a
+							href="http://jsbin.com/halapu/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 					<section>
 						<pre><code class="hljs" data-trim contenteditable>
@@ -376,6 +434,13 @@ console.log(car);
 //   depreciate: function()
 // }
 						</code></pre>
+						<a
+							href="http://jsbin.com/halapu/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -391,6 +456,13 @@ console.log(oValue); // 8
 let bValue = 0b10;
 console.log(bValue); // 2
 					</code></pre>
+					<a
+						href="http://jsbin.com/mejuzag/2/edit?js,console"
+						target="_blank"
+						rel="noopener"
+						style="font-size: 0.6em;">
+						JS Bin
+					</a>
 				</section>
 
 				<section>
@@ -410,6 +482,13 @@ let arr = foo(); // [1,2,3]
 let [a, b, c] = foo();
 console.log(a, b, c); // 1 2 3
 						</code></pre>
+						<a
+							href="http://jsbin.com/bidepim/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 					<section>
 						<pre><code class="hljs" data-trim contenteditable>
@@ -423,6 +502,13 @@ function bar() {
 let { x: a, y: b, z: c } = bar();
 console.log(a, b, c); // 4 5 6
 						</code></pre>
+						<a
+							href="http://jsbin.com/cenuju/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -450,6 +536,13 @@ Object.setPrototypeOf(child, parent);
 child.foo(); // Hello from the Parent
              // Hello from the Child
 						</code></pre>
+						<a
+							href="http://jsbin.com/kulunoj/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -466,6 +559,13 @@ child.foo(); // Hello from the Parent
 let user = 'Kevin';
 console.log(`Hi ${user}!`); // Hi Kevin!
 					</code></pre>
+					<a
+						href="http://jsbin.com/jejagih/2/edit?js,console"
+						target="_blank"
+						rel="noopener"
+						style="font-size: 0.6em;">
+						JS Bin
+					</a>
 				</section>
 
 				<section>
@@ -484,6 +584,13 @@ for (let nickname of nicknames) {
 // boo
 // punkeye
 						</code></pre>
+						<a
+							href="http://jsbin.com/saxuhop/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 					<section>
 						<p style="font-size: 0.6em;">
@@ -500,6 +607,13 @@ for (let nickname in nicknames) {
 // 2
 // size
 						</code></pre>
+						<a
+							href="http://jsbin.com/mageyef/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -535,6 +649,13 @@ myMap.get(keyString); // "value associated with 'a string'"
 myMap.get(keyObj);    // "value associated with keyObj"
 myMap.get(keyFunc);   // "value associated with keyFunc"
 						</code></pre>
+						<a
+							href="http://jsbin.com/rirudo/4/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -572,6 +693,13 @@ w.has(o1); // true
 w.delete(o1);
 w.has(o1); // false
 						</code></pre>
+						<a
+							href="http://jsbin.com/pevuruq/6/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -585,7 +713,7 @@ w.has(o1); // false
 let mySet = new Set([1, 1, 2, 2, 3, 3]);
 mySet.size; // 3
 mySet.has(1); // true
-mySet.add('строки');
+mySet.add('strings');
 mySet.add({ a: 1, b:2 });
 						</code></pre>
 					</section>
@@ -610,6 +738,13 @@ for (let value of mySet) {
   // Object { a: 1, b: 2 }
 }
 						</code></pre>
+						<a
+							href="http://jsbin.com/tukeda/5/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -635,6 +770,13 @@ ws.has(foo);    // false, foo has not been added to the set
 ws.delete(window); // removes window from the set
 ws.has(window);    // false, window has been removed
 						</code></pre>
+						<a
+							href="http://jsbin.com/fedina/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -671,6 +813,13 @@ let task = new Task(); // "task instantiated!"
 task.showId(); // 23
 Task.loadAll(); // "Loading all tasks.."
 						</code></pre>
+						<a
+							href="http://jsbin.com/vibovup/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -708,6 +857,13 @@ let c = new Porsche();
 // Creating a new car
 // Creating Porsche
 						</code></pre>
+						<a
+							href="http://jsbin.com/lepucu/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -733,6 +889,13 @@ let c = new Porsche();
 var sym = Symbol("some optional description");
 console.log(typeof sym); // symbol
 						</code></pre>
+						<a
+							href="http://jsbin.com/korapuc/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 					<section>
 						<p style="font-size: 0.6em;">
@@ -752,6 +915,13 @@ console.log(Object.getOwnPropertyNames(o)); // val
 						<p style="font-size: 0.6em;">
 							Чтобы извлечь символьные свойства объекта, нужно использовать Object.getOwnPropertySymbols(o)
 						</p>
+						<a
+							href="http://jsbin.com/jofoxuw/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -782,6 +952,13 @@ itr.next(); // { value: undefined, done: true }
 						<p style="font-size: 0.6em;">
 							Заметим, что можно написать собственный итератор через определение obj[Symbol.iterator]() с описанием объекта.
 						</p>
+						<a
+							href="http://www.pythontutor.com/javascript.html#code=var%20arr%20%3D%20%5B11,12,13%5D%3B%0Avar%20itr%20%3D%20arr%5BSymbol.iterator%5D(%29%3B%0A%0Aconsole.log(itr.next(%29%29%3B%20//%20%7B%20value%3A%2011,%20done%3A%20false%20%7D%0Aconsole.log(itr.next(%29%29%3B%20//%20%7B%20value%3A%2012,%20done%3A%20false%20%7D%0Aconsole.log(itr.next(%29%29%3B%20//%20%7B%20value%3A%2013,%20done%3A%20false%20%7D%0A%0Aconsole.log(itr.next(%29%29%3B%20//%20%7B%20value%3A%20undefined,%20done%3A%20true%20%7D&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							Tutor
+						</a>
 					</section>
 				</section>
 
@@ -810,6 +987,13 @@ numbers.next(); // { value: 1, done: false }
 numbers.next(); // { value: 2, done: false }
 numbers.next(); // { value: 3, done: false }
 						</code></pre>
+						<a
+							href="http://www.pythontutor.com/javascript.html#code=function%20*infiniteNums(%29%20%7B%0A%20%20var%20n%20%3D%201%3B%0A%20%20while%20(true%29%20%7B%0A%20%20%20%20yield%20n%2B%2B%3B%0A%20%20%7D%0A%7D%0A%0Avar%20numbers%20%3D%20infiniteNums(%29%3B%20//%20returns%20an%20iterable%20object%0A%0Aconsole.log(numbers.next(%29%29%3B%20//%20%7B%20value%3A%201,%20done%3A%20false%20%7D%0Aconsole.log(numbers.next(%29%29%3B%20//%20%7B%20value%3A%202,%20done%3A%20false%20%7D%0Aconsole.log(numbers.next(%29%29%3B%20//%20%7B%20value%3A%203,%20done%3A%20false%20%7D&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							Tutor
+						</a>
 					</section>
 					<section>
 						<p style="font-size: 0.6em;">
@@ -864,6 +1048,13 @@ hello.then((str) => `${str} World`)
      .then((str) => `${str}!`)
      .then((str) => console.log(str)) // Hello World!
 						</code></pre>
+						<a
+							href="http://jsbin.com/bakeda/3/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 					<section>
 						<p style="font-size: 0.6em;">
@@ -880,6 +1071,13 @@ p.then(add1)
  .then(add1)
  .then((val) => console.log(val)); // 3
 						</code></pre>
+						<a
+							href="http://jsbin.com/bubuzom/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
@@ -905,6 +1103,13 @@ fetch('/article/fetch/user.json')
   })
   .catch( alert );
 						</code></pre>
+						<a
+							href="http://jsbin.com/jetikum/21/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
 					</section>
 				</section>
 
