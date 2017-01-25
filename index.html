@@ -7,13 +7,13 @@
 		<title>ES2015</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/blood.css">
+		<link rel="stylesheet" href="css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<!-- Printing and PDF exports -->
-		<script>
+		<script>ƒ
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
@@ -24,63 +24,927 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+
 				<section>
 					<h2>ES2015
 						<span style="font-size: 60px;">и не только</span>
 					</h1>
-					<h4>Узнаем и готовимся применять самое полезное</h3>
+					<h4>Узнаем и готовимся применять самое полезное</h4>
 				</section>
 
 				<section>
-					<section id="fragments">
-					<h3>Что нам предстоит обсудить:</h3>
+					<h4>Что нам предстоит обсудить:</h4>
 					<ul style="font-size: 0.6em;">
-						<li class="fragment">`let`, `const` and block scoping</li>
-						<li class="fragment">Arrow Functions</li>
-						<li class="fragment">Default Function Parameters</li>
-						<li class="fragment">Spread/Rest Operator</li>
-						<li class="fragment">Object Literal Extensions</li>
-						<li class="fragment">Octal and Binary Literals</li>
-						<li class="fragment">Array and Object Destructuring</li>
+						<li>
+							<a href="#/4">let</a>, <a href="#/5">const</a> и блочная область видимости
+						</li>
+						<li>
+							<a href="#/7">Стрелочные функции</a>
+						</li>
+						<li>
+							<a href="#/8">Параметры по умолчанию</a>
+						</li>
+						<li>
+							<a href="#/9">Spread/Rest оператор</a>
+						</li>
+						<li>
+							<a href="#/10">Расширение возможностей литералов объекта</a>
+						</li>
+						<li>
+							<a href="#/11">Восьмеричный и двоичный литералы</a>
+						</li>
+						<li>
+							<a href="#/12">Деструктуризация массивов и объектов</a>
+						</li>
 					</ul>
 				</section>
-				<section id="fragments">
+				<section>
 					<ul style="font-size: 0.6em;">
-						<li class="fragment">super in Objects</li>
-						<li class="fragment">Template Literal and Delimiters</li>
-						<li class="fragment">for...of vs for...in</li>
-						<li class="fragment">Map and WeakMap</li>
-						<li class="fragment">Set and WeakSet</li>
-						<li class="fragment">Classes in ES6</li>
-						<li class="fragment">Symbol</li>
-						<li class="fragment">Iterators</li>
-						<li class="fragment">Generators</li>
-						<li class="fragment">Promises</li>
-						<li class="fragment">Fetch</li>
+						<li>
+							<a href="#/13">Ключевое слово super для объектов</a>
+						</li>
+						<li>
+							<a href="#/14">Строковые шаблоны и разделители</a>
+						</li>
+						<li>
+							<a href="#/15">Сравнение for...of и for...in</a>
+						</li>
+						<li>
+							<a href="#/16">Map</a> и <a href="#/17">WeakMap</a>
+						</li>
+						<li>
+							<a href="#/18">Set</a> и <a href="#/19">WeakSet</a>
+						</li>
+						<li>
+							<a href="#/20">Классы в ES6</a>
+						</li>
+						<li>
+							<a href="#/23">Тип данных Symbol</a>
+						</li>
+						<li>
+							<a href="#/24">Итераторы</a>
+						</li>
+						<li>
+							<a href="#/25">Генераторы</a>
+						</li>
+						<li>
+							<a href="#/26">Промисы</a>
+						</li>
+						<li>
+							<a href="#/27">Fetch</a>
+						</li>
 					</ul>
-				</section>
 				</section>
 
 				<section>
+						<p>В июне 2015ого года был принят новый стандарт EcmaScript:
+							ES2015, также известный как ES6.
+						</p>
+						<ul>
+							<li>
+								<a
+									href="http://www.ecma-international.org/ecma-262/6.0/"
+									target="_blank"
+									rel="noopener">
+									Официальная спецификация
+								</a>
+							</li>
+							<li>
+								<a
+									href="http://kangax.github.io/compat-table/es6/"
+									target="_blank"
+									rel="noopener">
+									Совместимость
+								</a>
+							</li>
+							<li>
+								<a
+									href="http://babeljs.io/"
+									target="_blank"
+									rel="noopener">
+									Компиляция - Babel.js
+								</a>
+							</li>
+						</ul>
+				</section>
+
+				<section>
+					<h4>let</h4>
+					<p style="font-size: 0.6em;">Ключевое слово let позволяет объявлять переменные с ограниченной областью видимости - только для блока {...}, в котором происходит объявление. Это называется блочной областью видимости. Вместо ключевого слова var, которое обеспечивает область видимости внутри функции, стандарт ES6 рекомендует использовать let.</p>
 					<pre><code class="hljs" data-trim contenteditable>
 var a = 2;
 {
-    let a = 3;
-    console.log(a); // 3
-    let a = 5; // TypeError
+  let a = 3;
+  console.log(a); // 3
+  let a = 5;
+  // TypeError: Identifier 'a' has already been declared
 }
 console.log(a); // 2
+					</code></pre>
+					<a
+						href="http://codepen.io/victorvolovik/pen/zNzeQa/"
+						target="_blank"
+						rel="noopener"
+						style="font-size: 0.6em;">
+						CodePen
+					</a>
+				</section>
+
+				<section>
+					<h4>const</h4>
+					<p style="font-size: 0.6em;">Другой формой объявления переменной с блочной областью видимости является ключевое слово const. Оно предназначено для объявления переменных (констант), значения которых доступны только для чтения. Это означает не то, что значение константы неизменно, а то, что идентификатор переменной не может быть переприсвоен.</p>
+					<pre><code class="hljs" data-trim contenteditable>
+{
+  const B = 5;
+  B = 10; // TypeError: Assignment to constant variable
+  const ARR = [5, 6];
+  ARR.push(7);
+  console.log(ARR); // [5,6,7]
+  ARR = 10; // TypeError: Assignment to constant variable
+  ARR[0] = 3; // value is mutable
+  console.log(ARR); // [3,6,7]
+}
+					</code></pre>
+					<a
+						href="http://codepen.io/victorvolovik/pen/OWgqmb/"
+						target="_blank"
+						rel="noopener"
+						style="font-size: 0.6em;">
+						CodePen
+					</a>
+				</section>
+
+				<section>
+					<h4>Обращаем внимание:</h4>
+					<ul style="font-size: 0.6em;">
+						<li>
+							Когда дело касается поднятия переменных (hoisting) let и const, их поведение отличается от традиционного поведения var и function. И let и const не существуют до своего объявления.
+						</li>
+						<li>
+							Областью видимости let и const является ближайший блок.
+						</li>
+						<li>
+							При использовании const рекомендуется использовать ПРОПИСНЫЕ_БУКВЫ.
+						</li>
+						<li>
+							В const одновременно с объявлением переменной должно быть присвоено значение.
+						</li>
+						<li>
+							let (как и const) объявленные в цикле for (и for (in)) так же попадает в блочную область видимости этого цикла:
+						</li>
+					</ul>
+					<pre><code class="hljs" data-trim contenteditable>
+for (let i=0;i<10;i++) {/* ... */};
+console.log(i); // → RefferenceError: i is not defined
 					</code></pre>
 				</section>
 
 				<section>
-					<p data-height="250" data-theme-id="16059" data-slug-hash="mRwydq" data-default-tab="js,result" data-user="victorvolovik" data-embed-version="2" data-pen-title="React v15 + Redux starting pen" class="codepen">See the Pen <a href="http://codepen.io/victorvolovik/pen/mRwydq/">React v15 + Redux starting pen</a> by Victor Volovik (<a href="http://codepen.io/victorvolovik">@victorvolovik</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+					<section>
+						<h4>Стрелочные функции <br>(Arrow functions)</h4>
+						<p style="font-size: 0.6em;">
+							Стрелочные функции представляют собой сокращённую запись функций в ES6. Стрелочная функция состоит из списка параметров ( ... ), за которым следует знак => и тело функции.
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+  // Classical Function Expression
+  let addition = function(a, b) {
+    return a + b;
+  };
+
+  // Implementation with arrow function
+  let addition = (a, b) => a + b;
+						</code></pre>
+						<a
+							href="http://codepen.io/victorvolovik/pen/XpgQBd/"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							CodePen
+						</a>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							Заметим, что в примере выше, тело функции представляет собой краткую запись, в которой не требуется явного указания на то, что мы хотим вернуть результат. Возможно использование блока из фигурных скобок.
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+let arr = ['apple', 'banana', 'orange'];
+
+let breakfast = arr.map(fruit => {
+  return fruit + 's';
+});
+
+console.log(breakfast); // ['apples', 'bananas', 'oranges']
+						</code></pre>
+						<a
+							href="http://codepen.io/victorvolovik/pen/oBwOPe/"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							CodePen
+						</a>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							Стрелочные функции не просто делают код короче. Они тесно связаны с ключевым словом this и привязкой контекста.
+							Поведение стрелочных функций с ключевым словом this отличается от поведения обычных функций с this. Каждая функция в JavaScript определяет свой собственный контекст this, но внутри стрелочных функций значение this то же самое, что и снаружи (стрелочные функции не имеют своего this).
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+function Person() {
+  // The Person() constructor defines `this`
+  // as an instance of itself.
+  this.age = 0;
+
+  setInterval(function growUp() {
+    // In non-strict mode, the growUp() function
+    // defines `this` as the global object, which
+    // is different from the `this`
+    // defined by the Person() constructor.
+    this.age++;
+  }, 1000);
+}
+var p = new Person();
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">В ECMAScript 3/5 это поведение стало возможным изменить, присвоив значение this другой переменной.</p>
+						<pre><code class="hljs" data-trim contenteditable>
+function Person() {
+  var self = this;
+  self.age = 0;
+
+  setInterval(function growUp() {
+    // The callback refers to the `self` variable of which
+    // the value is the expected object.
+    self.age++;
+  }, 1000);
+}
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">Как сказано выше, внутри стрелочных функций значение this то же самое, что и снаружи, поэтому следующий код работает так, как от него и ожидается:</p>
+						<pre><code class="hljs" data-trim contenteditable>
+function Person() {
+  this.age = 0;
+
+  setInterval(() => {
+    setTimeout(() => {
+      this.age++;
+      // `this` properly refers to the person object
+    }, 1000);
+  }, 1000);
+}
+
+var p = new Person();
+						</code></pre>
+					</section>
+
 				</section>
 
 				<section>
-					<h4>WIP</h4>
+					<h4>Параметры по умолчанию <br>(Default Function Parameters)</h4>
+					<p style="font-size: 0.6em;">
+						ES6 позволяет установить параметры по умолчанию при объявлении функции
+					</p>
+					<pre><code class="hljs" data-trim contenteditable>
+let getFinPrice= (price, tax = 0.7) => price + price * tax;
+getFinPrice(500); // 850
+					</code></pre>
 				</section>
+
+				<section>
+					<section>
+						<h4>Spread / Rest оператор <br>(Spread / Rest Operator)</h4>
+						<p style="font-size: 0.6em;">
+							<code>...</code> оператор называют как spread или rest, в зависимости от того, как и где он используется.При использовании в любом итерируемом объекте (iterable), данный оператор "разбивает" ("spread") его на индивидуальные элементы:
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+function foo(x, y, z) {
+  console.log(x, y, z);
+}
+
+let arr = [1, 2, 3];
+foo(...arr); // 1 2 3
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							Другим распространённым использованием оператора <code>...</code> является объединение набора значений в один массив. В данном случае оператор работает как "rest" ("соединяет с остальными элементами")
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+function foo(...args) {
+  console.log(args);
+}
+foo(1, 2, 3, 4, 5); // [1, 2, 3, 4, 5]
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Расширение возможностей литералов объекта <br>(Object Literal Extensions)</h4>
+						<p style="font-size: 0.6em;">
+							ES6 позволяет объявить литералы объекта с помощью короткого синтаксиса для инициализации свойств из переменных и определения функциональных методов. Также, стандарт обеспечивает возможность вычисления свойств непосредственно в литерале объекта.
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+function getCar(make, model, value) {
+  return {
+    // with property value shorthand syntax, you can omit
+    // the property value if key matches variable name
+    make,  // same as make: make
+    model, // same as model: model
+    value, // same as value: value
+    // computed values now work with object literals
+    ['make' + make]: true,
+    // Method definition shorthand syntax omits
+    // `function` keyword & colon
+    depreciate() { this.value -= 2500; }
+  };
+}
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+let car = getCar('Kia', 'Sorento', 40000);
+console.log(car);
+// {
+//   make: 'Kia',
+//   model:'Sorento',
+//   value: 40000,
+//   makeKia: true,
+//   depreciate: function()
+// }
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h4>Восьмеричный и двоичный литералы <br>(Octal and Binary Literals)</h4>
+					<p style="font-size: 0.6em;">
+						В ES6 появилась новая поддержка для восьмеричных и двоичных литералов. Добавление к началу числа 0o или 0O преобразует его в восьмеричную систему счисления (аналогично, 0b или 0B преобразует в двоичную систему счисления).
+					</p>
+					<pre><code class="hljs" data-trim contenteditable>
+let oValue = 0o10;
+console.log(oValue); // 8
+
+let bValue = 0b10;
+console.log(bValue); // 2
+					</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h4>Деструктуризация массивов и объектов <br>(Array and Object Destructuring)</h4>
+						<p style="font-size: 0.6em;">
+							Деструктуризация помогает избежать использования вспомогательных переменных при взаимодействии с объектами и массивами.
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+function foo() {
+  return [1, 2, 3];
+}
+let arr = foo(); // [1,2,3]
+
+let [a, b, c] = foo();
+console.log(a, b, c); // 1 2 3
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+function bar() {
+  return {
+    x: 4,
+    y: 5,
+    z: 6
+  };
+}
+let { x: a, y: b, z: c } = bar();
+console.log(a, b, c); // 4 5 6
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Ключевое слово super для объектов <br></h4>
+						<p style="font-size: 0.6em;">
+							ES6 позволяет использовать метод super в (безклассовых) объектах с прототипами. Вот простой пример:
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+var parent = {
+  foo() {
+    console.log("Hello from the Parent");
+  }
+}
+var child = {
+  foo() {
+    super.foo();
+    console.log("Hello from the Child");
+  }
+}
+Object.setPrototypeOf(child, parent);
+child.foo(); // Hello from the Parent
+             // Hello from the Child
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h4>Строковые шаблоны и разделители <br>(Template Literal and Delimiters)</h4>
+					<p style="font-size: 0.6em;">
+						ES6 предоставяляет более простой способ вставки значения переменной или результата выражения (т.н. "интерполяцию"), которые рассчитываются автоматически.
+					</p>
+					<ul style="font-size: 0.6em;">
+						<li><code>`${ ... }`</code> используется для вычисления значения переменной/выражения.</li>
+						<li><code>`</code>Обратные кавычки используются как разделитель.</li>
+					</ul>
+					<pre><code class="hljs" data-trim contenteditable>
+let user = 'Kevin';
+console.log(`Hi ${user}!`); // Hi Kevin!
+					</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h4>Сравнение for...of и for...in</h4>
+						<p style="font-size: 0.6em;">
+							<code>for...of</code> используется для перебора в цикле итерируемых объектов, например, массивов.
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+let nicknames = ['di', 'boo', 'punkeye'];
+nicknames.size = 3;
+for (let nickname of nicknames) {
+  console.log(nickname);
+}
+// di
+// boo
+// punkeye
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							<code>for...in</code> используется для перебора в цикле всех доступных для перебора (enumerable) свойств объекта.
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+let nicknames = ['di', 'boo', 'punkeye'];
+nicknames.size = 3;
+for (let nickname in nicknames) {
+  console.log(nickname);
+}
+// 0
+// 1
+// 2
+// size
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Map</h4>
+						<p style="font-size: 0.6em;">
+							ES6 представляет новые структуры данных - Map и WeakMap. На самом деле, мы используем "Map" в JavaScript всё время. Каждый объект можно представить как частный случай Map.
+						</p>
+						<p style="font-size: 0.6em;">
+							Классический объект состоит из ключей (всегда в строковом виде) и значений, тогда как в Map для ключа и значения можно использовать любое значение (и объекты, и примитивы).
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+var myMap = new Map();
+
+var keyString = "a string",
+    keyObj = {},
+    keyFunc = () => {};
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+// setting the values
+myMap.set(keyString, "value associated with 'a string'");
+myMap.set(keyObj, "value associated with keyObj");
+myMap.set(keyFunc, "value associated with keyFunc");
+
+myMap.size; // 3
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+// getting the values
+myMap.get(keyString); // "value associated with 'a string'"
+myMap.get(keyObj);    // "value associated with keyObj"
+myMap.get(keyFunc);   // "value associated with keyFunc"
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>WeakMap</h4>
+						<p style="font-size: 0.6em;">
+							WeakMap это Map, в котором ключи обладают неустойчивыми связями, что позволяет не мешать сборщику мусора удалять элементы WeakMap. Это означает, что можно не беспокоиться об утечках памяти.
+						</p>
+						<p style="font-size: 0.6em;">
+							Стоить отметить, что в WeakMap, в отличие от Map, каждый ключ должен быть объектом.
+						</p>
+						<p style="font-size: 0.6em;">
+							Для WeakMap есть только четыре метода: delete(ключ), has(ключ), get(ключ) и set(ключ, значение).
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+let w = new WeakMap();
+w.set('a', 'b');
+// Uncaught TypeError: Invalid value used as weak map key
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+var o1 = {},
+  o2 = () => {},
+  o3 = window;
+
+w.set(o1, 37);
+w.set(o2, "azerty");
+w.set(o3, undefined);
+
+w.get(o3); // undefined, because that is the set value
+
+w.has(o1); // true
+w.delete(o1);
+w.has(o1); // false
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Set</h4>
+						<p style="font-size: 0.6em;">
+							Объекты Set это коллекции уникальных значений. Дублированные значения игнорируются, т.к. коллекция должна содержать только уникальные значения. Значения могут быть примитивами или ссылками на объекты.
+						</p>
+<pre><code class="hljs" data-trim contenteditable>
+let mySet = new Set([1, 1, 2, 2, 3, 3]);
+mySet.size; // 3
+mySet.has(1); // true
+mySet.add('строки');
+mySet.add({ a: 1, b:2 });
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+mySet.forEach((item) => {
+  console.log(item);
+  // 1
+  // 2
+  // 3
+  // 'strings'
+  // Object { a: 1, b: 2 }
+});
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+for (let value of mySet) {
+  console.log(value);
+  // 1
+  // 2
+  // 3
+  // 'strings'
+  // Object { a: 1, b: 2 }
+}
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>WeakSet</h4>
+						<p style="font-size: 0.6em;">
+							Аналогично WeakMap, объект WeakSet позволяет хранить объекты с неустойчивыми связями в коллекции. Объект в WeakSet уникален.
+						</p>
+					</section>
+										<section>
+						<pre><code class="hljs" data-trim contenteditable>
+var ws = new WeakSet();
+var obj = {};
+var foo = {};
+
+ws.add(window);
+ws.add(obj);
+
+ws.has(window); // true
+ws.has(foo);    // false, foo has not been added to the set
+
+ws.delete(window); // removes window from the set
+ws.has(window);    // false, window has been removed
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Классы в ES6</h4>
+						<p style="font-size: 0.6em;">
+							В ES6 представили новый синтаксис для классов. Здесь стоит отметить, что класс ES6 не представляет собой новую объектно-ориентированную модель наследования. Это просто синтаксический сахар для существующего в JavaScript прототипного наследования.
+						</p>
+						<p style="font-size: 0.6em;">
+							Класс в ES6 представляет собой просто новый синтаксис для работы с прототипами и функциями-конструкторами, которые мы привыкли использовать в ES5.
+						</p>
+						<p style="font-size: 0.6em;">
+							Функции, записанные с помощью ключевого слова static, используются для объявления статических свойств класса.
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+class Task {
+  constructor() {
+    console.log("task instantiated!");
+  }
+  showId() {
+    console.log(23);
+  }
+  static loadAll() {
+    console.log("Loading all tasks..");
+  }
+}
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+console.log(typeof Task); // function
+let task = new Task(); // "task instantiated!"
+task.showId(); // 23
+Task.loadAll(); // "Loading all tasks.."
+						</code></pre>
+					</section>
+				</section>
+
+					<section>
+					<section>
+						<h4>extends и super в классах</h4>
+						<p style="font-size: 0.6em;">
+							В ES6 ключевое слово extends позволяет классу-потомку наследовать от родительского класса. Важно отметить, что конструктор класса-потомка должен вызывать super().
+						</p>
+						<p style="font-size: 0.6em;">
+							Также, в классе-потомке можно вызвать метод родительского класса с помощью super.имяМетодаРодителя().
+						</p>
+						<p style="font-size: 0.6em;">
+							Функции, записанные с помощью ключевого слова static, используются для объявления статических свойств класса.
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+class Car {
+  constructor() {
+    console.log("Creating a new car");
+  }
+}
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+class Porsche extends Car {
+  constructor() {
+    super();
+    console.log("Creating Porsche");
+  }
+}
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+let c = new Porsche();
+// Creating a new car
+// Creating Porsche
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h4>О чём стоит помнить:</h4>
+					<ul style="font-size: 0.6em;">
+						<li>
+							Объявления классов не поднимаются наверх (not hoisted). Сначала нужно объявить класс и только после этого использовать его, иначе будет ошибка ReferenceError.
+						</li>
+						<li>
+							Нет необходимости использовать ключевое слово function во время задания функций внутри определения класса.
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h4>Тип данных Symbol</h4>
+						<p style="font-size: 0.6em;">
+							Symbol это уникальный и неизменяемый тип данных, представленный в ES6. Целью Symbol является создание уникального идентификатора, к которому нельзя получить доступ.
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+var sym = Symbol("some optional description");
+console.log(typeof sym); // symbol
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							Заметим, что использовать new вместе с Symbol(…) нельзя.
+						</p>
+						<p style="font-size: 0.6em;">
+							Если Symbol используется как свойство/ключ объекта, он сохраняется таким специальным образом, что свойство не будет показано при нормальном перечислении свойств объекта.
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+var o = {
+  val: 10,
+  [Symbol("random")]: "I'm a symbol",
+};
+
+console.log(Object.getOwnPropertyNames(o)); // val
+						</code></pre>
+						<p style="font-size: 0.6em;">
+							Чтобы извлечь символьные свойства объекта, нужно использовать Object.getOwnPropertySymbols(o)
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Итераторы <br>(Iterators)</h4>
+						<p style="font-size: 0.6em;">
+							Итератор обращается к элементам коллекции по одному, в то же время сохраняя память о своей текущей позиции в этой коллекции. У итератора есть метод next(), который возвращает следующий элемент в последовательности. Этот метод возвращает объект с двумя свойствами: done (окончен ли перебор) и value (значение).
+						</p>
+						<p style="font-size: 0.6em;">
+							В ES6 есть метод Symbol.iterator, который определяет итератор для объекта по-умолчанию. При каждой необходимости перебора в цикле для объекта (например, в начале цикла for..of), его метод итератора вызывается без аргументов, и возвращённый итератор используется для того, чтобы получить значения для перебора.
+						</p>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							Посмотрим на массив, который является перебираемым (iterable), и на итератор, который есть у массива для обработки его значений:
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+var arr = [11,12,13];
+var itr = arr[Symbol.iterator]();
+
+itr.next(); // { value: 11, done: false }
+itr.next(); // { value: 12, done: false }
+itr.next(); // { value: 13, done: false }
+
+itr.next(); // { value: undefined, done: true }
+						</code></pre>
+						<p style="font-size: 0.6em;">
+							Заметим, что можно написать собственный итератор через определение obj[Symbol.iterator]() с описанием объекта.
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Генераторы <br>(Generators)</h4>
+						<p style="font-size: 0.6em;">
+							Функции-генераторы представляют собой новую особенность ES6, которая позволяет функции создавать много значений в течение некоторого периода времени, возвращая объект (называемый генератором), который может быть итерирован для выброса значений из функции по одному за раз.
+						</p>
+						<p style="font-size: 0.6em;">
+							Функция-генератор возвращает итерируемый объект при своём вызове. Функция-генератор записывается с помощью знака * после ключевого слова function, а в теле функции должно присутствовать ключевое слово yield.
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+function *infiniteNums() {
+  var n = 1;
+  while (true) {
+    yield n++;
+  }
+}
+
+var numbers = infiniteNums(); // returns an iterable object
+
+numbers.next(); // { value: 1, done: false }
+numbers.next(); // { value: 2, done: false }
+numbers.next(); // { value: 3, done: false }
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							Каждый раз при вызове yield возвращённое значение становится следующим значением в последовательности.
+						</p>
+						<p style="font-size: 0.6em;">
+							Также заметим, что генераторы вычисляют свои возвращённые значения по запросу, что позволяет им эффективно представлять последовательности, затратные с точки зрения вычислений, или даже бесконечные последовательности.
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Промисы <br>(Promises)</h4>
+						<p style="font-size: 0.6em;">
+							В ES6 появилась встроенная поддержка промисов. Промис это объект, который ждёт выполнения асинхронной операции, после которого (т.е. после выполнения) промис принимает одно из двух состояний: fulfilled (resolved, успешное выполнение) или rejected (выполнено с ошибкой).
+						</p>
+						<p style="font-size: 0.6em;">
+							Стандартным способом создания промиса является конструктор new Promise(), который принимает обработчик с двумя функциями как параметрами. Первый обработчик (обычно именуемый resolve) представляет собой функцию для вызова вместе с будущим значением, когда оно будет готово; второй обработчик (обычно именуемый reject) является функцией, которая вызывается для отказа от выполнения промиса, если он не может определить будущее значение.
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+var p = new Promise((resolve, reject) => {
+  if (/* condition */) {
+    resolve(/* value */);  // fulfilled successfully
+  } else {
+    reject(/* reason */);  // error, rejected
+  }
+});
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							Каждый промис обладает методом then, в котором есть два коллбэка. Первый коллбэк вызывается, если промис успешно выполнен (resolved), тогда как второй коллбэк вызывается, если промис выполнен с ошибкой (rejected).
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+p.then((val) => console.log("Promise Resolved", val),
+       (err) => console.log("Promise Rejected", err));
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							При возвращении значения от then коллбэки передадут значение следующему коллбэку then.
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+var hello = new Promise((resolve, reject) => {
+  resolve("Hello")
+});
+
+hello.then((str) => `${str} World`)
+     .then((str) => `${str}!`)
+     .then((str) => console.log(str)) // Hello World!
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							При возвращении промиса, успешно обработанное значение промиса пройдёт к следующему коллбэку, для того, чтобы эффективно соединить их вместе. Эта простая техника помогает избежать ада с коллбэками ("callback hell").
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+var p = new Promise((resolve, reject) => { resolve(1) });
+
+var add1 = (val) => new Promise((resolve, reject) => {
+  resolve(val + 1)
+});
+
+p.then(add1)
+ .then(add1)
+ .then((val) => console.log(val)); // 3
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Fetch</h4>
+						<p style="font-size: 0.6em;">
+							Метод fetch – это XMLHttpRequest нового поколения. Он предоставляет улучшенный интерфейс для осуществления запросов к серверу: как по части возможностей и контроля над происходящим, так и по синтаксису, так как построен на промисах.
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+fetch('/article/fetch/user.json')
+  .then(function(response) {
+    alert(response.headers.get('Content-Type'));
+    // application/json; charset=utf-8
+    alert(response.status); // 200
+
+    return response.json();
+   })
+  .then(function(user) {
+    alert(user.name); // admin
+  })
+  .catch( alert );
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h4>Использованые материалы и рекомендации.</h4>
+					<ul style="font-size: 0.6em;">
+						<li>
+								<a
+									href="https://github.com/metagrover/ES6-for-humans"
+									target="_blank"
+									rel="noopener">
+									ES6 for Humans
+								</a>
+								+
+								<a
+									href="https://github.com/etnolover/ES6-for-humans-translation"
+									target="_blank"
+									rel="noopener">
+									версия на русском языке - ES6 по-человечески
+								</a>
+							</li>
+							<li>
+								<a
+									href="http://learn.javascript.ru/es-modern"
+									target="_blank"
+									rel="noopener">
+									Современный стандарт ES-2015 и его расширения для JavaScript
+								</a>
+								+
+								<a
+									href="http://learn.javascript.ru/fetch"
+									target="_blank"
+									rel="noopener">
+									Метод fetch: замена XMLHttpRequest
+								</a>
+								от Илья Кантора
+							</li>
+					</ul>
+				</section>
+
 			</div>
 		</div>
 
