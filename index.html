@@ -30,6 +30,8 @@
 						<span style="font-size: 60px;">и не только</span>
 					</h1>
 					<h4>Узнаем и готовимся применять самое полезное</h4>
+					<p style="font-size: 0.6em;">Для навигации используйте пробел или стрелки клавиатуры.</p>
+					<p style="font-size: 0.6em;">Esc для обзора слайдов.</p>
 				</section>
 
 				<section>
@@ -92,6 +94,9 @@
 						</li>
 						<li>
 							<a href="#/27">Fetch</a>
+						</li>
+						<li>
+							<a href="#/28">Дополнительно</a>
 						</li>
 					</ul>
 				</section>
@@ -273,8 +278,16 @@ function Person() {
 }
 var p = new Person();
 							</code></pre>
+							<pre><code class="hljs" data-trim contenteditable>
+setInterval(() => {
+  setTimeout(() => {
+    console.log(p.age);
+  }, 1000);
+}, 1000);
+// 0
+						</code></pre>
 							<a
-								href="http://jsbin.com/jimecad/6/edit?js,console"
+								href="http://jsbin.com/jimecad/9/edit?js,console"
 								target="_blank"
 								rel="noopener"
 								style="font-size: 0.6em;">
@@ -295,8 +308,16 @@ function Person() {
   }, 1000);
 }
 						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+setInterval(() => {
+  setTimeout(() => {
+    console.log(p.age);
+  }, 1000);
+}, 1000);
+// 2 3 4...
+						</code></pre>
 						<a
-							href="http://jsbin.com/rezuqud/6/edit?js,console"
+							href="http://jsbin.com/rezuqud/8/edit?js,console"
 							target="_blank"
 							rel="noopener"
 							style="font-size: 0.6em;">
@@ -308,7 +329,6 @@ function Person() {
 						<pre><code class="hljs" data-trim contenteditable>
 function Person() {
   this.age = 0;
-
   setInterval(() => {
     setTimeout(() => {
       this.age++;
@@ -316,18 +336,61 @@ function Person() {
     }, 1000);
   }, 1000);
 }
-
 var p = new Person();
 						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+setInterval(() => {
+  setTimeout(() => {
+    console.log(p.age);
+  }, 1000);
+}, 1000);
+// 1 2 3 4...
+						</code></pre>
 						<a
-							href="http://jsbin.com/lamora/2/edit?js,console"
+							href="http://jsbin.com/lamora/4/edit?js,console"
 							target="_blank"
 							rel="noopener"
 							style="font-size: 0.6em;">
 							JS Bin
 						</a>
 					</section>
-
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const result = [1, 2, 3].map(num => num * 2);
+console.log(result);
+// [2, 4, 6]
+						</code></pre>
+						<a
+							href="http://jsbin.com/qaqiruw/4/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const result = [1, 2, 3, 4].map((num, i) => num * 2 + i);
+console.log(result);
+// [2, 5, 8, 11]
+						</code></pre>
+						<a
+							href="http://jsbin.com/gazalir/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<h4>NB</h4>
+						<ul style="font-size: 0.6em;">
+							<li>Стрелочные функции не могут быть использованы как конструкторы.</li>
+							<li>С фигурными скобками стрелочные функции требуют явного return.</li>
+							<li><code>this</code> не может быть изменен с помощью <code>.call</code> или <code>.apply</code> и т.п.</li>
+							<li>В качестве <code>arguments</code> используются аргументы внешней "обычной" функции.</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
@@ -352,7 +415,7 @@ getFinPrice(500); // 850
 					<section>
 						<h4>Spread / Rest оператор <br>(Spread / Rest Operator)</h4>
 						<p style="font-size: 0.6em;">
-							<code>...</code> оператор называют как spread или rest, в зависимости от того, как и где он используется.При использовании в любом итерируемом объекте (iterable), данный оператор "разбивает" ("spread") его на индивидуальные элементы:
+							<code>...</code> оператор называют как spread или rest, в зависимости от того, как и где он используется. При использовании в любом итерируемом объекте (iterable), данный оператор "разбивает" ("spread") его на индивидуальные элементы:
 						</p>
 						<pre><code class="hljs" data-trim contenteditable>
 function foo(x, y, z) {
@@ -382,6 +445,49 @@ foo(1, 2, 3, 4, 5); // [1, 2, 3, 4, 5]
 						</code></pre>
 						<a
 							href="http://jsbin.com/kaxika/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+function sum () {
+  const nums = Array.prototype.slice.call(arguments);
+  const multiplier = nums.shift();
+  const base = nums.shift();
+  const sum = nums.reduce((accum, num) => {
+    return accum + num;
+  }, base);
+  return multiplier * sum;
+}
+
+const total = sum(2, 6, 10, 8, 9);
+console.log(total);
+// 66
+						</code></pre>
+						<a
+							href="http://jsbin.com/rotakak/11/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+function sum (multiplier, base, ...nums) {
+  var sum = nums.reduce((accum, num) => accum + num, base);
+  return multiplier * sum;
+}
+
+const total = sum(2, 6, 10, 8, 9);
+console.log(total);
+// 66
+						</code></pre>
+						<a
+							href="http://jsbin.com/lubahuv/6/edit?js,console"
 							target="_blank"
 							rel="noopener"
 							style="font-size: 0.6em;">
@@ -510,6 +616,212 @@ console.log(a, b, c); // 4 5 6
 							JS Bin
 						</a>
 					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const bar = {
+  baz: "dat"
+};
+
+const { baz: foo } = bar;
+
+console.log(foo);
+// "dat"
+						</code></pre>
+						<a
+							href="http://jsbin.com/geyexe/5/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const baz = {};
+const { foo='bar' } = baz;
+
+console.log(foo);
+// "bar"
+						</code></pre>
+						<a
+							href="http://jsbin.com/waxazaz/7/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const {foo, bar: baz} = {foo: 0, bar: 1};
+
+console.log(foo, baz);
+// 0
+// 1
+						</code></pre>
+						<a
+							href="http://jsbin.com/caxine/3/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const {foo: {bar}} = { foo: { bar: 'baz' } };
+
+console.log(bar);
+// "baz"
+						</code></pre>
+						<a
+							href="http://jsbin.com/jalevo/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const {foo: {bar: deep}} = { foo: { bar: 'baz' } }
+
+console.log(deep);
+// "baz"
+						</code></pre>
+						<a
+							href="http://jsbin.com/qeyoxu/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+var {foo} = {}
+
+console.log(foo);
+// undefined
+						</code></pre>
+						<a
+							href="http://jsbin.com/vukerin/4/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const {foo: {bar}} = {}
+
+console.log(foo);
+// TypeError: Cannot read property 'bar' of undefined
+						</code></pre>
+						<a
+							href="http://jsbin.com/xezegow/4/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const [a, , b] = [0, 1, 2]
+
+console.log(a, b);
+// 0
+// 2
+						</code></pre>
+						<a
+							href="http://jsbin.com/lovalif/4/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+let a = 13;
+let b = 42;
+
+[a, b] = [b, a]
+
+console.log(a, b);
+// 42
+// 13
+						</code></pre>
+						<a
+							href="http://jsbin.com/lovalif/4/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+function foo ({ a=1, b=2 } = {}) {
+  console.log(a, b);
+}
+
+const props = { a: 23 };
+
+foo(props);
+// 23
+// 2
+
+foo();
+// 1
+// 2
+						</code></pre>
+						<a
+							href="http://jsbin.com/wuxuqo/12/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+function getUrlParts (url) {
+  var re =
+    /^(https?):\/\/(example\.com)(\/articles\/([a-z0-9-]+))$/
+  return re.exec(url)
+}
+const url = 'http://example.com/articles/some-article'
+const parts = getUrlParts(url);
+const [,protocol,host,pathname,slug] = parts;
+console.log(protocol, host, pathname, slug);
+// 'http'
+// 'example.com'
+// '/articles/some-article'
+// 'some-article'
+						</code></pre>
+						<a
+							href="http://jsbin.com/gisifud/8/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+import React, { Component, PropTypes } from 'react';
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+import { includes } from 'lodash';
+						</code></pre>
+						vs
+						<pre><code class="hljs" data-trim contenteditable>
+import includes from 'lodash/includes';
+						</code></pre>
+					</section>
 				</section>
 
 				<section>
@@ -547,25 +859,54 @@ child.foo(); // Hello from the Parent
 				</section>
 
 				<section>
-					<h4>Строковые шаблоны и разделители <br>(Template Literal and Delimiters)</h4>
-					<p style="font-size: 0.6em;">
-						ES6 предоставяляет более простой способ вставки значения переменной или результата выражения (т.н. "интерполяцию"), которые рассчитываются автоматически.
-					</p>
-					<ul style="font-size: 0.6em;">
-						<li><code>`${ ... }`</code> используется для вычисления значения переменной/выражения.</li>
-						<li><code>`</code>Обратные кавычки используются как разделитель.</li>
-					</ul>
-					<pre><code class="hljs" data-trim contenteditable>
+					<section>
+						<h4>Строковые шаблоны и разделители <br>(Template Literal and Delimiters)</h4>
+						<p style="font-size: 0.6em;">
+							ES6 предоставяляет более простой способ вставки значения переменной или результата выражения (т.н. "интерполяцию"), которые рассчитываются автоматически.
+						</p>
+						<ul style="font-size: 0.6em;">
+							<li><code>`${ ... }`</code> используется для вычисления значения переменной/выражения.</li>
+							<li><code>`</code>Обратные кавычки используются как разделитель.</li>
+						</ul>
+						<pre><code class="hljs" data-trim contenteditable>
 let user = 'Kevin';
 console.log(`Hi ${user}!`); // Hi Kevin!
-					</code></pre>
-					<a
-						href="http://jsbin.com/jejagih/2/edit?js,console"
-						target="_blank"
-						rel="noopener"
-						style="font-size: 0.6em;">
-						JS Bin
-					</a>
+						</code></pre>
+						<a
+							href="http://jsbin.com/jejagih/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							Можно использовать свою функцию шаблонизации для строк.
+						</p>
+						<p style="font-size: 0.6em;">
+							Эта функция будет автоматически вызвана и получит в качестве аргументов строку, разбитую по вхождениям параметров ${…} и сами эти параметры.
+						</p>
+						<pre><code class="hljs" data-trim contenteditable>
+const t = (template, ...vals) => [template, ...vals];
+
+const foo = 42;
+const bar = 13;
+
+const [str, ...vals] = t`some text with ${foo} and ${bar}`;
+
+console.log(str, vals);
+// ["some text with ", " and ", ""]
+// [42, 13]
+						</code></pre>
+						<a
+							href="http://jsbin.com/zisotuq/19/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
 				</section>
 
 				<section>
@@ -615,6 +956,34 @@ for (let nickname in nicknames) {
 							JS Bin
 						</a>
 					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+for (let char of "Hello") {
+  console.log(char); // H e l l o
+}
+						</code></pre>
+						vs
+						<pre><code class="hljs" data-trim contenteditable>
+console.log(...'World'); // W o r l d
+						</code></pre>
+						vs
+						<pre><code class="hljs" data-trim contenteditable>
+const str = "Foo Bar";
+let iterator = str[Symbol.iterator]();
+while(true) {
+  let result = iterator.next();
+  if (result.done) break;
+  console.log(result.value); // F o o " " B a r
+}
+						</code></pre>
+						<a
+							href="http://jsbin.com/xakada/14/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
 				</section>
 
 				<section>
@@ -657,6 +1026,56 @@ myMap.get(keyFunc);   // "value associated with keyFunc"
 							JS Bin
 						</a>
 					</section>
+					<section>
+						<p style="font-size: 0.6em;">Метод set можно чейнить:</p>
+						<pre><code class="hljs" data-trim contenteditable>
+map
+  .set('1', 'str1')
+  .set(1, 'num1')
+  .set(true, 'bool1');
+						</code></pre>
+						<p style="font-size: 0.6em;">При создании Map можно сразу инициализировать списком значений.</p>
+						<pre><code class="hljs" data-trim contenteditable>
+let map = new Map([
+  ['1',  'str1'],
+  [1,    'num1'],
+  [true, 'bool1']
+]);
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">
+							Для проверки значений на эквивалентность используется алгоритм <a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-samevaluezero" rel="noopener" target="_blank">SameValueZero</a>. Он аналогичен строгому равенству ===, отличие – в том, что NaN считается равным NaN. Поэтому значение NaN также может быть использовано в качестве ключа.
+						</p>
+						<p style="font-size: 0.6em;">
+							Этот алгоритм нельзя изменять или задавать свою функцию сравнения.
+						</p>
+					</section>
+					<section style="text-align: left">
+						<p style="font-size: 0.6em;">Методы для удаления записей:</p>
+						<ul style="font-size: 0.6em;">
+							<li>map.delete(key) удаляет запись с ключом key, возвращает true, если такая запись была, иначе false.</li>
+							<li>map.clear() – удаляет все записи, очищает map.</li>
+						</ul>
+						<p style="font-size: 0.6em;">Для проверки существования ключа:</p>
+						<ul style="font-size: 0.6em;">
+							<li>
+								map.has(key) – возвращает true, если ключ есть, иначе false.
+							</li>
+						</ul>
+						<p style="font-size: 0.6em;">Итерация:</p>
+						<ul style="font-size: 0.6em;">
+							<li>
+								map.keys() – возвращает итерируемый объект для ключей
+							</li>
+							<li>
+								map.values() – возвращает итерируемый объект для значений,
+							</li>
+							<li>
+								map.entries() – возвращает итерируемый объект для записей [ключ, значение], он используется по умолчанию в for..of.
+							</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
@@ -669,7 +1088,7 @@ myMap.get(keyFunc);   // "value associated with keyFunc"
 							Стоить отметить, что в WeakMap, в отличие от Map, каждый ключ должен быть объектом.
 						</p>
 						<p style="font-size: 0.6em;">
-							Для WeakMap есть только четыре метода: delete(ключ), has(ключ), get(ключ) и set(ключ, значение).
+							Для WeakMap есть только четыре метода: delete(ключ), has(ключ), get(ключ) и set(ключ, значение). Нет свойства size. Нельзя перебрать элементы итератором или forEach. Нет метода clear().
 						</p>
 					</section>
 					<section>
@@ -746,6 +1165,15 @@ for (let value of mySet) {
 							JS Bin
 						</a>
 					</section>
+						<section style="text-align: left">
+						<p style="font-size: 0.6em;">Основные методы:</p>
+						<ul style="font-size: 0.6em;">
+							<li>set.add(item) – добавляет в коллекцию item, возвращает set (чейнится).</li>
+							<li>set.delete(item) – удаляет item из коллекции, возвращает true, если он там был, иначе false.</li>
+							<li>set.has(item) – возвращает true, если item есть в коллекции, иначе false.</li>
+							<li>set.clear() – очищает set.</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
@@ -815,6 +1243,35 @@ Task.loadAll(); // "Loading all tasks.."
 						</code></pre>
 						<a
 							href="http://jsbin.com/vibovup/2/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+class Car {
+  constructor (speed) {
+    this.speed = speed
+  }
+}
+
+class Tesla extends Car {
+  constructor (speed) {
+    super(speed * 2)
+  }
+}
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+var newCar = new Car(100);
+var newTesla = new Tesla(120);
+
+console.log(newCar.speed); // 100
+console.log(newTesla.speed); // 240
+						</code></pre>
+						<a
+							href="http://jsbin.com/tajadi/6/edit?js,console"
 							target="_blank"
 							rel="noopener"
 							style="font-size: 0.6em;">
@@ -910,13 +1367,16 @@ var o = {
   [Symbol("random")]: "I'm a symbol",
 };
 
-console.log(Object.getOwnPropertyNames(o)); // val
+console.log(Object.getOwnPropertyNames(o));
+// ["val"]
+console.log(Object.getOwnPropertySymbols(o));
+// [Symbol(random)]
 						</code></pre>
 						<p style="font-size: 0.6em;">
 							Чтобы извлечь символьные свойства объекта, нужно использовать Object.getOwnPropertySymbols(o)
 						</p>
 						<a
-							href="http://jsbin.com/jofoxuw/2/edit?js,console"
+							href="http://jsbin.com/jofoxuw/4/edit?js,console"
 							target="_blank"
 							rel="noopener"
 							style="font-size: 0.6em;">
@@ -1079,6 +1539,36 @@ p.then(add1)
 							JS Bin
 						</a>
 					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+new Promise(resolve => resolve({ foo: 'bar' }))
+  .then(result => console.log(result))
+  // { foo: 'bar' }
+
+new Promise((resolve, reject) =>
+  reject(new Error('failed')))
+  .catch(reason => {
+    console.log(`${reason.name}: ${reason.message}`)
+  });
+  // "Error: failed"
+						</code></pre>
+						<a
+							href="http://jsbin.com/bizumo/16/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<a
+							href="http://jsbin.com/wovuwuf/27/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							Пример промисификации
+						</a>
+					</section>
 				</section>
 
 				<section>
@@ -1104,7 +1594,156 @@ fetch('/article/fetch/user.json')
   .catch( alert );
 						</code></pre>
 						<a
-							href="http://jsbin.com/jetikum/21/edit?js,console"
+							href="http://jsbin.com/jetikum/23/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+						<br>
+						<a
+							href="http://bevacqua.github.io/promisees/#code=fetch('http%3A%2F%2Fapi.openweathermap.org%2Fdata%2F2.5%2Fweather%3FAPPID%3Dbe9778c462f596112ddb02e3532d4c86%26q%3DMoscow')%0A++.then(function(response)+%7B%0A++++console.log(response.headers.get('Content-Type'))%3B%0A++++%2F%2F+application%2Fjson%3B+charset%3Dutf-8%0A++++console.log(response.status)%3B+%2F%2F+200%0A++++return+response.json()%3B%0A+++%7D)%0A++.then(function(data)+%7B%0A++++console.log(data)%3B+%2F%2F+weather+report%0A++%7D)%0A++.catch(console.error)%3B"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							Визуализация
+						</a>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Дополнительно</h4>
+						<p style="font-size: 0.6em;">Поддержка юникода</p>
+						<pre><code class="hljs" data-trim contenteditable>
+// same as ES5.1
+"𠮷".length == 2
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+// new RegExp behaviour, opt-in ‘u’
+"𠮷".match(/./u)[0].length == 2
+
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+// new form
+"\u{20BB7}"=="𠮷"=="\uD842\uDFB7"
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+// new String ops
+"𠮷".codePointAt(0) == 0x20BB7
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+// for-of iterates code points
+for(var c of "𠮷") {
+  console.log(c);
+}
+						</code></pre>
+						<a
+							href="http://jsbin.com/hivavo/4/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">Модули</p>
+						<pre><code class="hljs" data-trim contenteditable>
+// lib/math.js
+export function sum(x, y) {
+  return x + y;
+}
+export var pi = 3.141593;
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+// app.js
+import * as math from "lib/math";
+alert("2π = " + math.sum(math.pi, math.pi));
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+// otherApp.js
+import {sum, pi} from "lib/math";
+alert("2π = " + sum(pi, pi));
+						</code></pre>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+// lib/mathplusplus.js
+export * from "lib/math";
+export var e = 2.71828182846;
+export default function(x) {
+    return Math.log(x);
+}
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+// app.js
+import ln, {pi, e} from "lib/mathplusplus";
+alert("2π = " + ln(e)*pi*2);
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">Новые константы и методы</p>
+						<pre><code class="hljs" data-trim contenteditable>
+Number.EPSILON
+Number.isInteger(Infinity) // false
+Number.isNaN("NaN") // false
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+Math.acosh(3) // 1.762747174039086
+Math.hypot(3, 4) // 5
+Math.imul(Math.pow(2, 32) - 1, Math.pow(2, 32) - 2) // 2
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+"abcde".includes("cd") // true
+"abc".repeat(3) // "abcabcabc"
+"abccc".endsWith("ccc")) // true
+"aaabc".startsWith("aaa") // true
+						</code></pre>
+					</section>
+					<section>
+					<pre><code class="hljs" data-trim contenteditable>
+Array.from(document.querySelectorAll('*'))
+// Returns a real Array
+Array.of(1, 2, 3)
+// Similar to new Array(...),
+// but without special one-arg behavior
+[0, 0, 0].fill(7, 1)
+// [0,7,7]
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+[1, 2, 3].find(x => x == 3)
+// 3
+[1, 2, 3].findIndex(x => x == 2)
+// 1
+[1, 2, 3, 4, 5].copyWithin(3, 0)
+// [1, 2, 3, 1, 2]
+["a", "b", "c"].entries()
+// iterator [0, "a"], [1,"b"], [2,"c"]
+["a", "b", "c"].keys()
+// iterator 0, 1, 2
+["a", "b", "c"].values()
+// iterator "a", "b", "c"
+						</code></pre>
+					</section>
+					<section>
+						<p style="font-size: 0.6em;">Object.assign()</p>
+						<p style="font-size: 0.6em;">Функция Object.assign получает список объектов и копирует в первый target свойства из остальных.</p>
+						<pre><code class="hljs" data-trim contenteditable>
+Object.assign(target, src1, src2...)
+						</code></pre>
+						<pre><code class="hljs" data-trim contenteditable>
+const user = { name: "Вася" };
+const visitor = { isAdmin: false, visits: true };
+const admin = { isAdmin: true };
+
+Object.assign(user, visitor, admin);
+
+// user <- visitor <- admin
+console.log( user );
+// name: Вася, visits: true, isAdmin: true
+						</code></pre>
+						<a
+							href="http://jsbin.com/qavowi/5/edit?js,console"
 							target="_blank"
 							rel="noopener"
 							style="font-size: 0.6em;">
@@ -1117,36 +1756,45 @@ fetch('/article/fetch/user.json')
 					<h4>Использованые материалы и рекомендации.</h4>
 					<ul style="font-size: 0.6em;">
 						<li>
-								<a
-									href="https://github.com/metagrover/ES6-for-humans"
-									target="_blank"
-									rel="noopener">
-									ES6 for Humans
-								</a>
-								+
-								<a
-									href="https://github.com/etnolover/ES6-for-humans-translation"
-									target="_blank"
-									rel="noopener">
-									версия на русском языке - ES6 по-человечески
-								</a>
-							</li>
-							<li>
-								<a
-									href="http://learn.javascript.ru/es-modern"
-									target="_blank"
-									rel="noopener">
-									Современный стандарт ES-2015 и его расширения для JavaScript
-								</a>
-								+
-								<a
-									href="http://learn.javascript.ru/fetch"
-									target="_blank"
-									rel="noopener">
-									Метод fetch: замена XMLHttpRequest
-								</a>
-								от Илья Кантора
-							</li>
+							<a
+								href="https://github.com/metagrover/ES6-for-humans"
+								target="_blank"
+								rel="noopener">
+								ES6 for Humans
+							</a>
+							+
+							<a
+								href="https://github.com/etnolover/ES6-for-humans-translation"
+								target="_blank"
+								rel="noopener">
+								версия на русском языке - ES6 по-человечески
+							</a>
+						</li>
+						<li>
+							<a
+								href="http://learn.javascript.ru/es-modern"
+								target="_blank"
+								rel="noopener">
+								Современный стандарт ES-2015 и его расширения для JavaScript
+							</a>
+							+
+							<a
+								href="http://learn.javascript.ru/fetch"
+								target="_blank"
+								rel="noopener">
+								Метод fetch: замена XMLHttpRequest
+							</a>
+							от Илья Кантора
+						</li>
+						<li>
+							<a
+								href="https://ponyfoo.com/articles/es6"
+								target="_blank"
+								rel="noopener">
+								ES6 Overview in 350 Bullet Points
+							</a>
+							и другие статьи от Nicolás Bevacqua
+						</li>
 					</ul>
 				</section>
 
