@@ -755,7 +755,7 @@ console.log(a, b);
 // 13
 						</code></pre>
 						<a
-							href="http://jsbin.com/lovalif/4/edit?js,console"
+							href="http://jsbin.com/kiromo/2/edit?js,console"
 							target="_blank"
 							rel="noopener"
 							style="font-size: 0.6em;">
@@ -795,7 +795,7 @@ function getUrlParts (url) {
 }
 const url = 'http://example.com/articles/some-article'
 const parts = getUrlParts(url);
-const [,protocol,host,pathname,slug] = parts;
+const [protocol,host,pathname,slug] = parts;
 console.log(protocol, host, pathname, slug);
 // 'http'
 // 'example.com'
@@ -803,7 +803,96 @@ console.log(protocol, host, pathname, slug);
 // 'some-article'
 						</code></pre>
 						<a
-							href="http://jsbin.com/gisifud/8/edit?js,console"
+							href="http://jsbin.com/gisifud/9/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const savedFile = {
+  extension: 'jpg',
+  name: 'repost',
+  size: 14040
+};
+
+function fileSummary({name, extension, size}) {
+   return `The ${name}.${extension} is of size ${size} B`;
+}
+
+const result = fileSummary(savedFile);
+
+console.log(result);
+// "The repost.jpg is of size 14040 B"
+						</code></pre>
+						<a
+							href="http://jsbin.com/qemamep/4/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const companies = [
+  'Google',
+  'Facebook',
+  'Yandex'
+];
+
+const [firstCompany, ...otherCompanies] = companies;
+
+console.log(firstCompany, otherCompanies);
+// "Google"
+// ["Facebook", "Yandex"]
+						</code></pre>
+						<a
+							href="http://jsbin.com/qoretu/9/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const companies = [
+  { name: 'Google', location: 'Mountain View' },
+  { name: 'Facebook', location: 'Menlo Park' },
+  { name: 'Uber', location: 'San Francisco' }
+];
+const [{location: google}] = companies;
+console.log(google);
+// "Mountain View"
+						</code></pre>
+						<a
+							href="http://jsbin.com/weqepex/14/edit?js,console"
+							target="_blank"
+							rel="noopener"
+							style="font-size: 0.6em;">
+							JS Bin
+						</a>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim contenteditable>
+const points = [
+  [4, 5],
+  [10, 1],
+  [0, 40]
+];
+
+const result = points.map(([x, y]) => {
+  return { x, y }
+});
+
+console.log(result);
+// [{x: 4, y: 5}, {x: 10, y: 1}, {x: 0, y:40}]
+						</code></pre>
+						<a
+							href="http://jsbin.com/zeyifu/15/edit?js,console"
 							target="_blank"
 							rel="noopener"
 							style="font-size: 0.6em;">
